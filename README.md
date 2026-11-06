@@ -4,7 +4,6 @@
 
 > Proyecto personal y educativo. Antes se llamaba *MuseMeal*.
 
-<!-- Sustituye por tus capturas: crea la carpeta docs/screenshots/ y guarda ahí las imágenes -->
 <p align="center">
   <img src="docs/screenshots/inicio.png" width="230" alt="Pantalla de inicio" />
   <img src="docs/screenshots/plan.png" width="230" alt="Plan de comidas" />
@@ -96,8 +95,10 @@ GROQ_API_KEY=tu_clave_aqui
 Carga el catálogo inicial y arranca el servidor:
 ```bash
 python scripts/seed_catalog.py
-uvicorn app.main:app --reload
+python -m uvicorn app.main:app --reload --port 8001
 ```
+
+> El frontend redirige las peticiones al backend en el puerto **8001** (configurado en `frontend/vite.config.js`).
 
 ### 3. Frontend
 ```bash
@@ -106,7 +107,7 @@ npm install
 npm run dev
 ```
 
-La app quedará disponible en `http://localhost:5173`.
+La app quedará disponible en `http://localhost:5173` (o en el puerto que indique Vite en la consola).
 
 ## ⚠️ Aviso
 
