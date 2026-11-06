@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:              #f7f6f2;
+  --bg-surface:      #ffffff;
+  --bg-surface2:     #f0efe9;
+  --bg-hover:        #e8e7e0;
+  --border:          #e5e3db;
+  --border-strong:   #d0cdc4;
+  --text-1:          #1a1a18;
+  --text-2:          #6b6966;
+  --text-3:          #b0ada8;
+  --accent:          #4a7c59;
+  --accent-hover:    #3d6849;
+  --accent-soft:     #eef5f0;
+  --cta:             #e8603c;
+  --cta-hover:       #d4522f;
+  --cta-soft:        #fef3ef;
+  --cta-shadow:      rgba(232,96,60,0.25);
+  --shadow-sm:       0 1px 2px rgba(0,0,0,0.06);
+  --shadow-card:     0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-float:    0 8px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-modal:    0 24px 64px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
+  --radius-card:     16px;
+  --radius-xl:       20px;
+  --nav-height:      72px;
+  --nav-glass:       rgba(247,246,242,0.75);
+  --nav-border:      rgba(229,227,219,0.6);
+}
+
+[data-theme="dark"] {
+  --bg:              #080808;
+  --bg-surface:      #111111;
+  --bg-surface2:     #1a1a1a;
+  --bg-hover:        #222222;
+  --border:          rgba(255,255,255,0.07);
+  --border-strong:   rgba(255,255,255,0.13);
+  --text-1:          #f2f2f0;
+  --text-2:          #808080;
+  --text-3:          #404040;
+  --accent:          #5a9469;
+  --accent-hover:    #6aaa79;
+  --accent-soft:     rgba(74,124,89,0.12);
+  --cta:             #e8603c;
+  --cta-hover:       #f07050;
+  --cta-soft:        rgba(232,96,60,0.10);
+  --cta-shadow:      rgba(232,96,60,0.30);
+  --shadow-sm:       0 1px 2px rgba(0,0,0,0.3);
+  --shadow-card:     0 0 0 1px rgba(255,255,255,0.06);
+  --shadow-float:    0 8px 32px rgba(0,0,0,0.5);
+  --shadow-modal:    0 24px 64px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.07);
+  --nav-glass:       rgba(8,8,8,0.65);
+  --nav-border:      rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+*, *::before, *::after {
+  transition: background-color 180ms ease, border-color 180ms ease,
+              color 180ms ease, box-shadow 180ms ease;
+}
+
+button, a, .no-theme-transition {
+  transition: background-color 180ms ease, border-color 180ms ease,
+              color 180ms ease, box-shadow 180ms ease,
+              transform 150ms cubic-bezier(0,0,0.2,1),
+              opacity 150ms ease;
+}
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.meal-card {
+  transition: transform 200ms cubic-bezier(0.23,1,0.32,1),
+              box-shadow 200ms ease !important;
+}
+.meal-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-float) !important; }
+
+.instr-panel {
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 320ms cubic-bezier(0.23,1,0.32,1);
+}
+.instr-panel.open { clip-path: inset(0 0 0% 0); }
+
+.ing-row {
+  opacity: 0;
+  animation: ingIn 260ms cubic-bezier(0.16,1,0.3,1) forwards;
+  animation-delay: calc(var(--i,0) * 30ms);
+}
+@keyframes ingIn {
+  from { opacity:0; transform:translateY(3px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+@keyframes tabEnter {
+  from { opacity:0; transform:translateY(8px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.tab-enter { animation: tabEnter 240ms cubic-bezier(0.16,1,0.3,1); }
+
+.progress-bar {
+  transition: width 700ms cubic-bezier(0.16,1,0.3,1);
+}
+
+@keyframes modalUp {
+  from { opacity:0; transform:translateY(24px) scale(0.98); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+.modal-enter { animation: modalUp 280ms cubic-bezier(0.16,1,0.3,1); }
+
+@keyframes ctaGlow {
+  0%,100% { box-shadow: 0 4px 16px var(--cta-shadow); }
+  50%      { box-shadow: 0 4px 28px var(--cta-shadow), 0 0 0 4px rgba(232,96,60,0.08); }
+}
+
+@keyframes slideUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.slide-up { animation: slideUp 300ms cubic-bezier(0.16,1,0.3,1); }
+
+@keyframes ctaPulse {
+  0%,100% { box-shadow: 0 6px 20px var(--cta-shadow); }
+  50%      { box-shadow: 0 6px 30px var(--cta-shadow), 0 0 0 6px rgba(232,96,60,0.07); }
+}
+.cta-pulse { animation: ctaPulse 2.8s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-up { animation: fadeUp 400ms cubic-bezier(0.16,1,0.3,1) both; }
+
+@keyframes shimmer {
+  from { transform:translateX(-100%); }
+  to   { transform:translateX(100%); }
+}
+.shimmer { position:relative; overflow:hidden; }
+.shimmer::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 1.6s ease infinite;
+}
+
+@keyframes pulseRing {
+  0%,100% { transform:scale(1);    opacity:0.5; }
+  50%      { transform:scale(1.08); opacity:0.15; }
+}
+.pulse-ring { animation: pulseRing 2.2s ease-in-out infinite; }
+
+@keyframes breathe {
+  0%,100% { transform:scaleY(0.6); opacity:0.4; }
+  50%      { transform:scaleY(1.4); opacity:1; }
+}
+
+@keyframes numberIn {
+  from { opacity:0; transform:translateY(8px) scale(0.95); }
+  to   { opacity:1; transform:translateY(0)   scale(1); }
+}
+.number-enter { animation: numberIn 500ms cubic-bezier(0.16,1,0.3,1) both; }
+
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+
+.card-glass {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+[data-theme="dark"] .card-glass {
+  background: rgba(17,17,17,0.78);
+}

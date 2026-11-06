@@ -1,0 +1,50 @@
+═════════════════════════════════════════════════════════════════
+  INFORME DE COBERTURA — MuseMeal × Mercadona
+  Generado: 2026-04-11 12:13 UTC
+═════════════════════════════════════════════════════════════════
+
+RESUMEN GLOBAL
+─────────────────────────────────────────────────────────────────
+  Total productos encontrados en Mercadona :  2191
+  Listos en ProductORM (macros completos)  :  1007  (46.0%)
+  Pendientes en ProductPendingORM           :  1184  (54.0%)
+
+COBERTURA POR CATEGORÍA INTERNA
+─────────────────────────────────────────────────────────────────
+  Categoría       Listos  Pendientes   Total   Cobertura
+  ──────────────  ──────  ──────────  ──────  ──────────
+  proteina           250         453     703       35.6%
+  carbohidrato       306         260     566       54.1%
+  verdura            136         193     329       41.3%
+  lacteo             208         175     383       54.3%
+  grasa              107         103     210       51.0%
+
+RAZONES DE PENDIENTES
+─────────────────────────────────────────────────────────────────
+  off_not_found              1108  (93.6%)
+  off_incomplete               44  (3.7%)
+  price_not_per_kg             30  (2.5%)
+  no_ean                        2  (0.2%)
+
+TOP 10 PRODUCTOS POR RATIO KCAL/€
+─────────────────────────────────────────────────────────────────
+   #  Producto                                Cat.           kcal/100g   €/100g   kcal/€
+  ──  ──────────────────────────────────────  ─────────────  ─────────  ───────  ───────
+   1. Pan rallado Hacendado                  carbohidrato        369   0.113€    3254
+   2. Arroz redondo Hacendado                carbohidrato        344   0.130€    2646
+   3. Galletas María dorada Hacendado        carbohidrato        443   0.169€    2624
+   4. Galletas María Hacendado               carbohidrato        431   0.169€    2553
+   5. Galletas tostadas Hacendado            carbohidrato        429   0.169€    2541
+   6. Galletas Digestive Hacendado           carbohidrato        464   0.194€    2394
+   7. Galletas María Integral Hacendado      carbohidrato        410   0.175€    2343
+   8. Hélices con vegetales Hacendado        carbohidrato        362   0.155€    2335
+   9. Fideuá Hacendado                       carbohidrato        366   0.160€    2288
+  10. Fideo mediano Hacendado                carbohidrato        366   0.160€    2288
+
+DISTRIBUCIÓN DE PRODUCTOS LISTOS POR CATEGORÍA
+─────────────────────────────────────────────────────────────────
+  proteina        250 productos  │  precio medio: 1.424€/100g  │  kcal media: 210
+  carbohidrato    306 productos  │  precio medio: 0.597€/100g  │  kcal media: 375
+  verdura         136 productos  │  precio medio: 0.595€/100g  │  kcal media: 79
+  lacteo          208 productos  │  precio medio: 0.507€/100g  │  kcal media: 136
+  grasa           107 productos  │  precio medio: 1.084€/100g  │  kcal media: 473
